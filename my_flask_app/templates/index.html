@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static\styles.css">
+    <title>Página de Avaliação de Ações</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Avaliação de Ações</h1>
+        <form method="post">
+            <label for="symbol">Símbolo da Ação:</label>
+            <input type="text" id="symbol" name="symbol" required>
+            <button type="submit">Avaliar</button>
+        </form>
+        {% if avaliacao %}
+            <div class="result">
+                <h2>Resultado:</h2>
+                <p>{{ avaliacao }}</p>
+                {% if url_grafico %}
+                    <img src="data:image/png;base64,{{ url_grafico }}" alt="Gráfico de Preço de Fechamento">
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
